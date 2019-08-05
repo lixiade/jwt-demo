@@ -40,7 +40,7 @@ console.log('\n')
  */
 
 // 获取签发 JWT 时需要用的密钥
-const privateKey = fs.readFileSync('./config/private.key')
+const privateKey = fs.readFileSync('jwt-demo/config/private.key')
 
 // 签发 Token
 const tokenRS256 = jwt.sign(payload, privateKey, { algorithm: 'RS256' })
@@ -49,7 +49,7 @@ const tokenRS256 = jwt.sign(payload, privateKey, { algorithm: 'RS256' })
 console.log('RS256 算法：', tokenRS256)
 
 // 获取验证 JWT 时需要用的公钥
-const publicKey = fs.readFileSync('./config/public.key')
+const publicKey = fs.readFileSync('jwt-demo/config/public.key')
 
 // 验证 Token
 jwt.verify(tokenRS256, publicKey, (error, decoded) => {
